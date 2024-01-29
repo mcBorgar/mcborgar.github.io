@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+html,
+body{
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    
+}
+body {
+    background-color: #BFC7D0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+h1{
+    font-size: 40px;
+    font-family: 'Handjet', sans-serif;
+    text-align: center;
+}
+h2{
+    font-size: 30px;
+    font-family: 'Handjet', sans-serif;
+    text-align: center; 
+}
+h3 {
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 140%;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    background-color: #495F8C;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 5px 20px rgb(90, 90, 90);
+    z-index: 999;
+    /* height: 200px; */
+    transition: height 0.5s ease;
+    height: 150px;
+}
+header img {
+    transition:  0.5s;
+}
+
+.sticky-header{
+    /* Styles for the smaller, sticky header */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #495F8C; /* Adjust the color as needed */
+    box-shadow: 0px 5px 20px rgb(90, 90, 90);
+    /* transition: transform 500ms ease-in-out; */
+    height: 100px;
+}
+.sticky-header + main {
+    padding-top: 102px;
+}
+
+.smaller-header {
+    height: 50px; 
+}
+
+.Logo{
+    background-color: #738CBF;
+    padding: 1%;
+    margin: 10px;
+    border-radius: 15px;
+}
+.sidebar{
+    padding: 20px;
+}
+.headBokserOutline{
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.headBokser{
+    background-color: #738CBF;
+    color: black;
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    transition: 1s;
+    margin-inline: auto;
+    font-size: 30px;
+    cursor: pointer;
+}
+.headBokser :hover{
+    background-color: #495F8C;
+    color: #BFC7D0;
+    border: 0;
+    transition: 500ms;
+}
+/* Hovedinnholdet */
+main {
+    background-color: #BFC7D0;
+    display: grid;
+    border: 0;
+    height: 100%;
+    flex-grow: 1;
+    position: relative;
+    z-index: 100;
+    margin-block-end: 20rem;
+    box-shadow: 0px 0px 100px rgb(0, 0, 0);
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 
+        "side1 head side2"
+        "side1 main side2";
+}
+
+/* Sidefyll: */
+.BlankSide1 {
+    background-color:  rgb(160, 166, 173);
+    grid-area: side1;
+    width: 150px;
+    height: 100%;
+    grid-column: 1;
+    display: block; 
+    @media only screen and (max-width: 600px) { 
+        display: none; 
+    } 
+}
+.BlankSide2 {
+    background-color: rgb(160, 166, 173);
+    grid-area: side2;
+    width: 150px;
+    height: 100%;
+    grid-column: 3;
+    display: block; 
+    @media only screen and (max-width: 600px) { 
+        display: none; 
+    } 
+}
+.OverGreie{ 
+    position: relative;
+    border: 5px solid rgb(104, 116, 148);
+    height: 150px;
+    width: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: #99a6bf;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    margin-inline: auto;
+}
+
+.kortGalleri {
+    grid-area: main;
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    gap: 20px;
+    z-index: 10;
+    margin-bottom: 1rem;
+}
+.bokser{
+    /* padding-inline: 1rem; */
+    height: 250px;
+    width: 300px;
+    border: 3px solid rgb(75, 95, 148);
+    background-color: #738CBF;
+    text-align: center;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 20px rgb(90, 90, 90);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    @media only screen and (max-width: 600px) {    
+        font-size: 1px; 
+}
+.bokser:visited {
+    text-decoration: none;
+}
+}
+.bokser img{
+    border-bottom: 5px solid rgb(75, 95, 148);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 15px;
+    /* border: 5px solid green; */
+}
+
+
+/* Sidemeny: */
+.open-button {
+    background-color: #738CBF;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.side-menu {
+    height: 100%;
+    width:0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #495F8C;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+    border-left: 5px solid #8c8c8c;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 20% 10% 10% 60%; 
+    z-index: 1000;
+}
+
+.close-button {
+    cursor: pointer;
+    background-color: #738CBF;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    grid-row: 1;
+    grid-column: 2;
+    top: 30px;
+    right: 0px;
+    position: absolute;
+}
+.close-button img {
+    border-radius: 0px;
+}
+.Scammed {
+    background-color: #738CBF;
+    width: 90%  ;
+    height: 90%;
+    margin: auto;
+    grid-row: 2;
+    border-radius: 15px;
+}
+.AboutSidemeny {
+    background-color: #738CBF;
+    width: 90%  ;
+    height: 90%;
+    margin: auto;
+    grid-row: 3;
+    border-radius: 15px; 
+}
+
+.AboutContent {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%; 
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+.AboutText {
+    grid-column: 1;
+}
+.AboutText h1 {
+    font-size: 100px;
+}
+.AboutText h2 {
+    font-size: 70px;
+}
+.AboutImg {
+    grid-column: 2;
+}
+
+
+/* Podkasten */
+.PodkastBoks {
+    width: 100%;
+    border: 0;
+    height: 100%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10%;
+}
+.PodkastBoks h1 {
+    font-size: 70px;
+    margin: 20px auto 30px; 
+}
+.PodVideo {
+    border: 5px solid rgb(75, 95, 148);
+    border-radius: 5px;
+    width: 70%; /* Adjusted width */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+    margin: 70px auto 10px; /* Added bottom margin for spacing */
+}
+
+.PodSound {
+    border: 5px solid rgb(75, 95, 148);
+    border-radius: 25px;
+    width: 90%; /* Adjusted width to make the progress bar longer */
+    max-width: 600px; /* Set a maximum width to avoid excessive stretching */
+    margin: 100px auto 10px; /* Added bottom margin for spacing */
+}
+.PodcastDescription {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 0;
+    text-align: left    ;
+}
+
+/* Teksten */
+.TextBox{
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    padding-top: 5%;
+} 
+
+.TextHeaderBox {
+    text-align: center;
+    border: 0;
+}
+
+.TextHeader {
+    font-size: 60px;
+}
+
+.OppdelingITekst {
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.MainInfoTextBox {
+    grid-column: 1;
+    padding-right: 6%;
+}
+
+.BilderITekst{
+    grid-column: 2;
+    margin-top: 10%;
+    /* border-radius: 20px; */
+}
+
+
+.UnderOverskrifter {
+    color: black;
+    font-weight: bold;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 0;   
+
+}
+footer img {
+    position: absolute;
+    /* width: 100%; */
+    border-radius: 0%;
+    bottom: 0pt;
+}
+
+/* paralex scrolling underinfo*/
+.parallax {
+    height: 100%; 
+    position: relative;
+    bottom: 100px;
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    z-index: 1;
+    /* border: 5px solid rgb(17, 255, 0); */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.hiddenText {
+    position: absolute;
+    margin: auto;
+    width: 1000px;
+    border-radius: 0%;
+    bottom: 370pt;
+    color: red;
+    display: flex;
+}
+/* @media only screen and (max-device-width: 1366px) {
+    .parallax {
+    background-attachment: scroll;
+    }
+} */
+
+.InfoBunn {
+    /* border: 5px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 40;
+} 
+.Contact {
+    /* border: 5px solid magenta; */
+    background-color: rgb(114, 136, 194);
+    width: 25%;
+}
+.License {
+    /* border: 5px solid pink; */
+    background-color: rgb(114, 136, 194);
+    width: 25%;
+}
+hr {
+    border: 2px dashed rgb(75, 95, 148);
+}
+.CCimg {
+    width: 40px;
+}
+.CC1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
